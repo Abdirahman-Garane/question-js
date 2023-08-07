@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="output.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container w-full h-screen flex justify-center items-center">
+      <div class="card w-96 bg-base-100 h-96 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">QUESTION! <span id="num"></span></h2>
+          <p id="ques" class="text-lg capitalize text-black">
+            kusoo dhawow suaalo iyo jawaabo
+          </p>
+          <div class="card-actions justify-between flex">
+            <button id="prev" class="btn w-40 p-0 btn-primary">
+              Prev Question
+            </button>
+            <button id="next" class="btn btn-primary">Next Question</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    let x = 0; // Current question index
+
+    let Questions = [
+      {
+        Question: "1-Su'aal Sheeg ninkii Nebigana aha Boqorokana ahaa?",
+      },
+      {
+        Question:
+          "2-Su'aal Sheeg Bogortooyadii Nebi Suleymaan imisa sano ayey dhisneed?",
+      },
+      {
+        Question:
+          "3-Su'aal Sheeg imisa jir buu-ahaa markuu Nebi Suleymaan Cs Aabihiis xukunka kala wareegaayey?",
+      },
+      {
+        Question:
+          "4-Su'aal Sheeg Labadii Nebi ee walaalaha aha isku mar-ladiray isku qoom-na loo-diray?",
+      },
+      {
+        Question:
+          "5-Su'aal, Sheeg ninkii ugu horeeyey ee sameeyey Canbuur bireedka dagaalka??",
+      },
+    ];
+
+    document.getElementById("next").addEventListener("click", () => {
+      if (x < Questions.length - 1) {
+        x++;
+        document.getElementById("ques").innerHTML = Questions[x].Question;
+        document.getElementById("num").innerHTML = x + 1;
+      }
+    });
+
+    document.getElementById("prev").addEventListener("click", () => {
+      if (x > 0) {
+        x--;
+        document.getElementById("ques").innerHTML = Questions[x].Question;
+        document.getElementById("num").innerHTML = x + 1;
+      }
+    });
+  </script>
+</html>
